@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hello React!</title>
+    <script src="http://cdn.bootcss.com/react/0.14.0-alpha1/react.min.js"></script>
+    <style>
+        p{font:italic bold 50px verdana;}
+    </style>
+</head>
+<body>
+    <!--2.在真实DOM上定义容器-->
+    <div id="content"></div>
+    <script>
+
+        //3.在虚拟DOM上创建react元素el,el元素类型为html中的<p>
+        var el = React.createElement("p",null,"Hello React!");
+
+        //4.将虚拟DOM上的el元素渲染到真实DOM上的#content容器
+        React.render(el,document.querySelector("#content"));
+    </script>
+
+    <!--在真实DOM上定义容器-->
+    <div id="content2"></div>
+    <script>
+
+        //在虚拟DOM上创建react元素el2,el2元素类型为html中的<ul>
+        var el2 = React.createElement(
+                "ul",
+                null,
+                React.createElement("li",null,"China"),
+                React.createElement("li",null,"Japan"),
+                React.createElement("li",null,"Korea")
+        );
+
+        //将虚拟DOM上的el2元素渲染到真实DOM上的#content2容器
+        React.render(el2,document.querySelector("#content2"));
+    </script>
+
+    <!--在真实DOM上定义容器-->
+    <!--将虚拟DOM上的el3元素渲染到真实DOM上的#content3容器,而el3在react-ul.js里定义-->
+    <div id="content3"></div>
+    <script src="js/react-ul.js"></script>
+</body>
+</html>
