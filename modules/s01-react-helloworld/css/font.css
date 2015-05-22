@@ -1,0 +1,33 @@
+/*主流浏览器都能很好地支持@font-face，但对于嵌入的字体文件的识别，却是各有各的喜好。*/
+
+/*所以在写@font-face语句之前，需要获取要使用字体的四种文件格式，确保能在主流浏览器中都能正常显示该字体。*/
+
+/*.TTF或.OTF，适用于Firefox 、Safari、Opera*/
+
+/*.EOT，适用于Internet Explorer 4.0+*/
+
+/*.SVG，适用于Chrome、IPhone*/
+
+/*.WOFF 知用于Chrome、Firefox*/
+
+
+@font-face {
+    font-family:"LED";
+    src:
+    /*如果某浏览器以下多种字体都支持，则会下载排在上面的字体*/
+    url("../font/LED.woff") format("woff"),
+    url("../font/digital-7.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+.ez-led{
+    font-family : "LED";
+    font-size : 40px;
+    background : #70d355;
+    width: 300px;
+    height:60px;
+    line-height : 60px;
+    text-align : right;
+    padding : 10px;
+    letter-spacing:5px;
+}
