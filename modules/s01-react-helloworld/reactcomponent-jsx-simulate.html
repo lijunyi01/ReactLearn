@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Virtual Dom</title>
+    <script src="js/react.min.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+    <link href="css/font.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!--定义容器-->
+    <div id="content">
+        <button onclick="transform();">模拟JSX自动处理过程</button>
+    </div>
+
+    <!--为避免自动转化，声明脚本类型为JSX2-->
+    <script type="text/jsx2" id="demo">
+
+            //定义React组件
+            var EzLedComp = React.createClass({
+                //每个React组件都应该事先render()方法
+                render : function(){
+                    var e =
+
+                        //JSX-->
+                        <div>
+                            <div className="ez-led">Hello, React!</div>
+                            <div className="ez-led">2015-04-15</div>
+                        </div>;
+                        //<--JSX
+
+                    return e;
+                }
+            });
+            //渲染
+            React.render(
+                <EzLedComp/> , //JSX
+                document.querySelector("#content"));
+
+    </script>
+
+    <script type="text/javascript">
+        //模拟JSX语法转换
+        var transform = function(){
+            var el = document.querySelector("#demo");
+            //1.将原始JSX代码转换为JS代码
+            var jsxt = JSXTransformer.transform(el.text);
+
+            var headEl = document.querySelector("head"),
+                    scriptEl = document.createElement("script");
+
+            //2.设置新的script元素的内容为转换后的代码
+            scriptEl.text = jsxt.code;
+            scriptEl.type = "text/javascript";
+
+            //3.将新的script元素追加到文档head元素
+            headEl.appendChild(scriptEl);
+        };
+    </script>
+
+</body>
+</html>
