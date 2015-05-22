@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Virtual Dom</title>
+    <script src="js/react.min.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+    <link href="css/font.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="content">content</div>
+    <!--外联.js后缀的jsx文件-->
+    <script type="text/jsx" src="js/component-EzLedComp-jsx.js"></script>
+
+    <!--以下为未使用JSX，而是使用js，由于javascript部分先加载，如果不延时会报错：找不到变量EzLedCom；也许可以用其它方式解决脚本依赖关系，让上一个脚本先被加载并处理-->
+    <script type="text/javascript">
+        setTimeout(function(){
+            //创建React元素,这个元素的类型是EzLedComp
+            //组件相当于类，元素相当于实例
+            var el = React.createElement(EzLedComp);
+            //渲染
+            React.render(el,document.querySelector("#content"));
+        },5000);
+    </script>
+
+</body>
+</html>

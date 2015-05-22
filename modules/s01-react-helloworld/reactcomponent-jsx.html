@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Virtual Dom</title>
+    <!--<script src="http://cdn.bootcss.com/react/0.14.0-alpha1/react.min.js"></script>-->
+    <script src="js/react.min.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+    <link href="css/font.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="content">content</div>
+    <!--外联.js后缀的jsx文件-->
+    <script type="text/jsx" src="js/component-EzLedComp-jsx.js"></script>
+    <!--使用于编译后的js-->
+    <!--<script type="text/javascript" src="js/component-EzLedComp-jsx-compiled.js"></script>-->
+    <!--内联jsx-->
+    <script type="text/jsx">
+        //jsx写法中看起来可以直接将组件渲染到dom(也无需通过组件生成元素)，其实预编译后自动创建了该组建的元素，然后把元素渲染到dom
+        React.render(
+        <EzLedComp/> , //JSX
+          document.querySelector("#content"));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Virtual Dom</title>
+    <script src="js/react.min.js"></script>
+    <!--使用预编译后的js，就不需要以下js了-->
+    <!--<script src="js/JSXTransformer.js"></script>-->
+    <link href="css/font.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="content">content</div>
+    <!--使用预编译后的js-->
+    <script type="text/javascript" src="js/component-EzLedComp-jsx-compiled.js"></script>
+
+    <script type="text/javascript">
+            //创建React元素,这个元素的类型是EzLedComp
+            //组件相当于类，元素相当于实例
+            var el = React.createElement(EzLedComp);
+            //渲染
+            React.render(el,document.querySelector("#content"));
+    </script>
+
+</body>
+</html>

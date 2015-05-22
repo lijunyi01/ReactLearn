@@ -3,12 +3,22 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Virtual Dom</title>
-    <script src="http://cdn.bootcss.com/react/0.14.0-alpha1/react.min.js"></script>
+    <!--<script src="http://cdn.bootcss.com/react/0.14.0-alpha1/react.min.js"></script>-->
+    <script src="js/react.min.js"></script>
     <link href="css/font.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="content"></div>
-    <script src="js/reactcomponent.js"></script>
+    <script src="js/component-EzLedComp.js"></script>
+    <script>
+        //创建React元素,这个元素的类型是EzLedComp
+        //组件相当于类，元素相当于实例
+        var el = React.createElement(EzLedComp);
+
+        //渲染
+        //jsx写法中看起来可以直接将组件渲染到dom，其实预编译后自动创建了该组建的元素，然后把元素渲染到dom
+        React.render(el,document.querySelector("#content"));
+    </script>
 
 </body>
 </html>
