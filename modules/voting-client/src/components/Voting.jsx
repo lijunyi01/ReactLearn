@@ -1,14 +1,33 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { render } from 'react-dom';
-import Winner from './Winner';
-import Vote from './Vote';
+import { Winner } from './Winner';
+import { Vote } from './Vote';
 import { connect } from 'react-redux';
 
 //const pair = ['Trainspotting', '28 Days Later'];
-export const Voting = React.createClass({
-    //申明组件参数是不可变参数，启动浅对比，提高组件渲染性能
-    mixins: PureRenderMixin,
+//export const Voting = React.createClass({
+//    //申明组件参数是不可变参数，启动浅对比，提高组件渲染性能
+//    mixins: [PureRenderMixin],
+//
+//    render() {
+//        return <div>
+//            {this.props.winner ?
+//                //注意这里我们为胜利组件添加了ref，这是因为我们将在单元测试中利用它获取DOM节点
+//                <Winner ref="winner" winner={this.props.winner} /> :
+//                <Vote {...this.props} />}
+//        </div>;
+//    }
+//});
+//
+
+
+//ES6 class 写法，更接近java
+class Voting extends React.Component {
+    constructor(props) {
+        super(props);
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    }
 
     render() {
         return <div>
@@ -18,7 +37,7 @@ export const Voting = React.createClass({
                 <Vote {...this.props} />}
         </div>;
     }
-});
+}
 
 function mapStateToProps(state) {
     return {

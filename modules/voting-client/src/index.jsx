@@ -8,7 +8,7 @@ import { VotingContainer } from './components/Voting';
 import App from './components/App';
 //import Results from './components/Results';
 import { ResultsContainer } from './components/Results';
-import Winner from './components/Winner';
+//import Winner from './components/Winner';
 import { createStore } from 'redux';
 import reducer from './reducer';
 import { Provider } from 'react-redux';
