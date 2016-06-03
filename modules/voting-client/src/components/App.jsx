@@ -19,7 +19,8 @@ import { render } from 'react-dom';
 
 
 //ES6 class 写法
-export class App extends React.Component {
+//export class App extends React.Component {  ; 直接在此export也可以，但在最后集中导出更清晰
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -38,4 +39,4 @@ export class App extends React.Component {
     }
 }
 
-//export const App_Pure = App;
+export { App };

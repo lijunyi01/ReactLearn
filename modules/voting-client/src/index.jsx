@@ -21,10 +21,10 @@ store.dispatch({
     type: 'SET_STATE',
     state: {
         vote: {
-            pair: ['Sunshine', '28 Days Later'],
+            pair: ['Sunshine', '28 Days Later', '功夫熊猫'],
             tally: {Sunshine: 2}
         },
-        winner: 'Sunshine'
+        winner: ''
     }
 });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
+import { Winner } from './Winner';
 
 
 //export const Results = React.createClass({
@@ -42,7 +43,7 @@ import { connect } from 'react-redux';
 
 
 //ES6 class 写法
-export class Results extends React.Component {
+class Results extends React.Component {
     constructor(props) {
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);

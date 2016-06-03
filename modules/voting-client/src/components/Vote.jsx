@@ -30,7 +30,8 @@ import { render } from 'react-dom';
 //});
 
 //ES6 class 写法，更接近java
-export class Vote extends React.Component {
+//export class Vote extends React.Component {  ; 直接在此export也可以，但在最后集中导出更清晰
+class Vote extends React.Component {
     constructor(props) {
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -64,4 +65,4 @@ export class Vote extends React.Component {
     }
 }
 
-//export const Vote_Pure = Vote;
+export { Vote };
