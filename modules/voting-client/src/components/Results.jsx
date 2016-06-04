@@ -74,6 +74,7 @@ class Results extends React.Component {
                             </div>
                     )}
                 </div>
+                <br/>
                 <div className="management">
                     <button ref="next"
                             className="next"
@@ -87,11 +88,19 @@ class Results extends React.Component {
 
 //export const Results_Pure = Results;
 
+//state: {
+//    vote: {
+//        pair: ['Sunshine', '28 Days Later', '功夫熊猫'],
+//        tally: {'Sunshine': 2,'28 Days Later': 1,'功夫熊猫': 3}
+//    },
+//    winner: ''
+//}
+
 function mapStateToProps(state) {
     return {
-        pair: state.getIn(['vote', 'pair']),
-        tally: state.getIn(['vote', 'tally']),
-        winner: state.get('winner')
+        pair: state.getIn(['vote', 'pair']),          //两级取数据 vote->pair
+        tally: state.getIn(['vote', 'tally']),        //两级取数据 vote->tally
+        winner: state.get('winner')                   //一级取数据 winner
     }
 }
 

@@ -14,6 +14,8 @@ import reducer from './reducer';
 import { Provider } from 'react-redux';
 import io from 'socket.io-client';
 
+import { setState } from './action_creators';
+
 
 const store = createStore(reducer);
 //由硬编码改为接收服务端的action
@@ -22,16 +24,18 @@ store.dispatch({
     state: {
         vote: {
             pair: ['Sunshine', '28 Days Later', '功夫熊猫'],
-            tally: {Sunshine: 2}
+            tally: {'Sunshine': 2,'28 Days Later': 1,'功夫熊猫': 3}
         },
         winner: ''
+        //next: () => nextInvoked = true
+
     }
 });
 
 //const socket = io('http://192.168.8.100:8090');
 //侦听来自服务端的state事件
 //socket.on('state', state =>
-//        store.dispatch({type: 'SET_STATE', state})
+//        store.dispatch(setState(state))
 //);
 
 render(
