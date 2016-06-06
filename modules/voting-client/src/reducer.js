@@ -9,7 +9,7 @@
 //当Reducer被Redux调用的时候,Redux会为Reducer传递两个参数State 和 Action
 //真正开发项目的时候State会涉及很多功能，在一个Reducer处理所有逻辑会非常混乱，所以需要拆分成多个小Reducer，每个Reducer只处理它管理的那部分State数据。然后再由一个主rootReducers来专门管理这些小Reducer。Redux提供了一个方法 combineReducers 专门来管理这些小Reducer。
 //Reducer有三点需要注意:
-//- 不要修改 state。
+//- 不要修改 state。以下函数未真正修改原state,最多只是修改了形参并返回。最终由store真正修改state
 //- 在 default 情况下返回旧的 state。遇到未知的 action 时，一定要返回旧的 state。
 //- 如果没有旧的State，就返回一个initialState，这很重要！！！
 
@@ -54,8 +54,8 @@ function resetVote(state) {
 export default function(state = Map(), action={}) {
     switch (action.type) {
         case 'SET_STATE':
-            //return setState(state, action.state);
-            return resetVote(setState(state, action.state));
+            //return setState(state, action.statedata);
+            return resetVote(setState(state, action.statedata));
         case 'VOTE':
             return vote1(state, action.voteresult);
     }
