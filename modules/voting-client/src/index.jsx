@@ -14,21 +14,18 @@ import reducer from './reducer';
 import { Provider } from 'react-redux';
 import io from 'socket.io-client';
 
-import { setState } from './action_creators';
-
 
 const store = createStore(reducer);
-//由硬编码改为接收服务端的action
+//硬编码store.dispatch(action)
 store.dispatch({
     type: 'SET_STATE',
+    //state 就是个Map，即key-value对。“vote”是state中的一个key，其对应的value也是一个Map (是否也就是个json对象？)
     state: {
         vote: {
             pair: ['Sunshine', '28 Days Later', '功夫熊猫'],
             tally: {'Sunshine': 2,'28 Days Later': 1,'功夫熊猫': 3}
         },
         winner: ''
-        //next: () => nextInvoked = true
-
     }
 });
 
