@@ -41,8 +41,7 @@ class Voting extends React.Component {
     }
 }
 
-
-//state: {
+//state:{
 //    vote: {
 //        pair: ['Sunshine', '28 Days Later', '功夫熊猫'],
 //        tally: {'Sunshine': 2,'28 Days Later': 1,'功夫熊猫': 3}
